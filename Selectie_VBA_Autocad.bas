@@ -1,10 +1,15 @@
 Sub Selectie_VBA_Autocad ()
   Dim sset As AcadSelectionSet
-  Dim FilterType(0) As Integer
-  Dim FilterData(0) As Variant
   Dim objBlock As AcadBlockReference
   Dim objEntity As AcadEntity
   Dim varAtts() As AcadAttributeReference
+  
+  Dim FilterType(0) As Integer
+  Dim FilterData(0) As Variant
+  
+  ' variabile pentru selectia cu fereastra
+  Dim pct1(0 To 2) As Double
+  Dim pct2(0 To 2) As Double
   
   On Error GoTo Err_Control
   
@@ -14,6 +19,8 @@ Sub Selectie_VBA_Autocad ()
   FilterData(0) = "Nume_Entitate_Cautata"
 
   sset.Select acSelectionSetAll, , , FilterType, FilterData
+  ' sset.Select acSelectionSetWindow, pct1, pct2, FilterType, FilterData
+  ' sset.SelectOnScreen FilterType, FilterData
       
   For Each objEntity In sset
     Set objBlock = objEntity
