@@ -1,4 +1,4 @@
-Sub SelectieVBAAutocad ()
+Sub Selectie_VBA_Autocad ()
   Dim sset As AcadSelectionSet
   Dim FilterType(0) As Integer
   Dim FilterData(0) As Variant
@@ -10,8 +10,8 @@ Sub SelectieVBAAutocad ()
   
   Set sset = ThisDrawing.SelectionSets.Add("SS1")
 
-  FilterType(0) = 2
-  FilterData(0) = "Punct"
+  FilterType(0) = 2     ' Block = 2 ; Layer = 8 ; 
+  FilterData(0) = "Nume_Entitate_Cautata"
 
   sset.Select acSelectionSetAll, , , FilterType, FilterData
       
@@ -20,7 +20,7 @@ Sub SelectieVBAAutocad ()
     If objEntity.HasAttributes Then
       varAtts = objEntity.GetAttributes
       For i = LBound(varAtts) To UBound(varAtts)
-          If varAtts(i).TagString = "atribut_cautat" Then
+          If varAtts(i).TagString = "Atribut_Cautat" Then
             If CInt(varAtts(i).TextString) > nr Then
               nr = CInt(varAtts(i).TextString)
             End If
