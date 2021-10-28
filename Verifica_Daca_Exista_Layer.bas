@@ -1,3 +1,9 @@
+' Mod de utilizare
+' ----------------
+' If Verifica_Daca_Exista_Layer = True Then
+'       --- linii cod ---
+' End If
+
 Public Function Verifica_Daca_Exista_Layer(ByVal strLayerName As String) As Boolean
     Dim objLayer As AcadLayer
     
